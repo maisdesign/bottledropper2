@@ -98,6 +98,120 @@
       touch-action: none;
       user-select: none;
       -webkit-user-select: none;
+      position: relative;
+    }
+
+    /* Game Start Overlay Styles */
+    .game-start-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(135, 206, 235, 0.95) 0%, rgba(135, 206, 235, 0.85) 100%);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    .game-start-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.95);
+    }
+
+    .game-start-content {
+      text-align: center;
+      color: white;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      max-width: 90%;
+    }
+
+    .game-start-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .game-start-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .game-start-btn {
+      padding: 1rem 2rem;
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .game-start-btn:hover {
+      background: linear-gradient(45deg, #ff5252, #e55039);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .game-start-btn:active {
+      transform: translateY(-1px);
+    }
+
+    /* Mobile adjustments for game start overlay */
+    @media (max-width: 768px) {
+      .game-start-title {
+        font-size: 1.6rem;
+      }
+
+      .game-start-subtitle {
+        font-size: 1rem;
+      }
+
+      .game-start-btn {
+        padding: 0.8rem 1.6rem;
+        font-size: 1rem;
+      }
+
+      .game-start-content {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .game-start-title {
+        font-size: 1.4rem;
+      }
+
+      .game-start-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .game-start-btn {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.95rem;
+      }
+
+      .game-start-content {
+        padding: 1.2rem;
+      }
     }
 
     .controls {
@@ -781,7 +895,7 @@
       }
     }
   </style>
-  <script type="module" crossorigin src="/assets/index-80099ef7.js"></script>
+  <script type="module" crossorigin src="/assets/index-412df762.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/phaser-f8c8a439.js">
   <link rel="modulepreload" crossorigin href="/assets/supabase-2481e69c.js">
 <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
@@ -795,7 +909,18 @@
     </div>
 
     <div class="game-container">
-      <div id="game-container"></div>
+      <div id="game-container">
+        <!-- Game Start Overlay -->
+        <div id="game-start-overlay" class="game-start-overlay">
+          <div class="game-start-content">
+            <h2 class="game-start-title" data-i18n="gameStartTitle">🎮 Etimuè Bottle Dropper</h2>
+            <p class="game-start-subtitle" data-i18n="gameStartSubtitle">Pronto per catturare le bottiglie?</p>
+            <button class="game-start-btn" onclick="startNewGame()" data-i18n="gameStartButton">
+              ▶️ Nuova Partita
+            </button>
+          </div>
+        </div>
+      </div>
       <!-- Mobile Touch Controls -->
       <div class="mobile-controls">
         <button class="touch-btn touch-left" id="touch-left">←</button>
