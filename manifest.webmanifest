@@ -1,0 +1,20 @@
+{
+  "name": "Etimuè Bottle Dropper",
+  "short_name": "Bottle Dropper",
+  "description": "Fun bottle dropping game by Etimuè",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a1a1a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["games", "entertainment"],
+  "lang": "it",
+  "scope": "/"
+}
