@@ -39,4 +39,4 @@ self.addEventListener('activate', function(event) {
   );
 });
 
-// NO FETCH LISTENER - let normal requests go through// Build trigger ven  3 ott 2025 20:52:54
+// NO FETCH LISTENER - let normal requests go through
