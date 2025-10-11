@@ -25,11 +25,50 @@
 </head>
 <body>
   <div class="container">
-    <div class="header">
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
+    <!-- Hamburger Menu Overlay -->
+    <div class="hamburger-menu" id="hamburger-menu">
+      <div class="hamburger-menu-content">
+        <button class="hamburger-close" id="hamburger-close">&times;</button>
+        <nav class="hamburger-nav">
+          <button class="hamburger-item" onclick="showInstructions(); closeHamburgerMenu();" data-i18n="instructions">
+            ❓ Instructions
+          </button>
+          <button class="hamburger-item" onclick="showPrizes(); closeHamburgerMenu();" data-i18n="prizesButton">
+            🏆 Cosa si vince
+          </button>
+          <button class="hamburger-item" onclick="showLeaderboard(); closeHamburgerMenu();" data-i18n="leaderboard">
+            🏅 Classifica
+          </button>
+          <button class="hamburger-item" id="hamburger-audio-btn" onclick="toggleAudio(); closeHamburgerMenu();">
+            🔊 <span data-i18n="audioOn">Audio On</span>
+          </button>
+          <button class="hamburger-item" id="hamburger-language-btn" onclick="toggleLanguage(); closeHamburgerMenu();">
+            🌍 <span id="hamburger-lang-text">IT</span>
+          </button>
+          <button class="hamburger-item" onclick="showPrivacy(); closeHamburgerMenu();" data-i18n="privacy">
+            🔐 Privacy
+          </button>
+          <button class="hamburger-item" onclick="showTerms(); closeHamburgerMenu();" data-i18n="terms">
+            📜 Termini
+          </button>
+          <button class="hamburger-item hamburger-logout" id="hamburger-logout-btn" onclick="logout(); closeHamburgerMenu();" data-i18n="logout" style="display: none;">
+            🚪 Logout
+          </button>
+        </nav>
+      </div>
+    </div>
+
+    <div class="header">
       <h1 class="title" data-i18n="title">Etimuè Bottle Dropper</h1>
       <p class="subtitle" data-i18n="subtitle">Catch the falling bottles!</p>
-      <span class="version" data-i18n="version">v2.3.0 - Mobile Ready</span>
+      <span class="version" data-i18n="version">v2.3.1 - Hamburger Menu</span>
     </div>
 
     <div class="game-container">
@@ -53,23 +92,11 @@
     </div>
 
     <div class="controls">
-      <button class="btn btn-primary" onclick="startNewGame()" data-i18n="newGame">
-        🎮 New Game
+      <button class="btn btn-primary btn-large" onclick="startNewGame()" data-i18n="newGame">
+        🎮 GIOCA
       </button>
-      <button id="pause-btn" class="btn" onclick="togglePause()" data-i18n="pause">
-        ⏸️ Pause
-      </button>
-      <button class="btn" onclick="showLeaderboard()" data-i18n="leaderboard">
-        🏆 Classifica
-      </button>
-      <button class="btn" onclick="showInstructions()" data-i18n="instructions">
-        ❓ Instructions
-      </button>
-      <button id="language-btn" class="btn" onclick="toggleLanguage()">
-        🌍 IT
-      </button>
-      <button id="character-btn" class="btn" onclick="cycleCharacter()">
-        🐱 Charlie
+      <button id="character-btn" class="btn btn-character" onclick="cycleCharacter()">
+        🐱 <span id="character-name">Charlie</span>
       </button>
     </div>
 
